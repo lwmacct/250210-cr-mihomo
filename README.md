@@ -11,7 +11,7 @@ __main() {
 
   {
     # 镜像准备
-    _image1="registry.cn-hangzhou.aliyuncs.com/lwmacct/mihomo:v1.191.1-amd64-t250206"
+    _image1="ghcr.io/lwmacct/250210-cr-mihomo:v1.191.1-amd64-t2502100"
     _image2="$(docker images -q $_image1)"
     if [[ "$_image2" == "" ]]; then
       docker pull $_image1

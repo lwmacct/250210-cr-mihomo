@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
 __main() {
-
   {
     # 镜像准备
-    _image1="ghcr.io/lwmacct/250210-cr-mihomo:v1.191.1-amd64-t2502100"
+    _image1="ghcr.io/lwmacct/250210-cr-mihomo:v1.19.3-t2503220"
     _image2="$(docker images -q $_image1)"
     if [[ "$_image2" == "" ]]; then
       docker pull $_image1

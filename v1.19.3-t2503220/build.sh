@@ -24,14 +24,14 @@ RUN set -eux; \
 RUN set -eux; \
   mkdir -p /apps/bin; \
   cd /apps/bin && \
-  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.1/mihomo-linux-amd64-v1.19.1.gz && \
+  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.3/mihomo-linux-amd64-v1.19.3.gz && \
   gunzip mihomo-linux-amd64-* && \
-  mv mihomo-linux-amd64-* mihomo &&  \
-  chmod +x mihomo; \
+  mv mihomo-linux-amd64-* /usr/local/bin/mihomo &&  \
+  chmod +x /usr/local/bin/mihomo; \
   echo;
 
 RUN set -eux; \
-  mkdir -p /apps/file/apps/data/mihomo && cd /apps/file/apps/data/mihomo || exit 1; \
+  mkdir -p /apps/file/apps/data && cd /apps/file/apps/data || exit 1; \
   rm -rf geoip.dat geoip.metadb geosite.dat ui; \
   wget https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat && \
   wget https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat && \
@@ -42,8 +42,7 @@ RUN set -eux; \
 COPY apps/ /apps/
 WORKDIR /apps/data
 ENTRYPOINT ["tini", "--"]
-CMD ["sh", "-c", "bash /apps/.entry.sh & exec crond  -f"]
-# CMD ["tmux", "new-session", "-s", "tmux", "sleep infinity"]
+CMD ["bash", "/apps/.entry.sh"]
 
 LABEL org.opencontainers.image.source=$_ghcr_source
 LABEL org.opencontainers.image.description="lwmacct"
@@ -76,7 +75,7 @@ EOF
         docker rm -f sss 2>/dev/null
         docker run -itd --name=sss \
           --restart=always \
-          --network=host \
+          --network=bridge \
           --privileged=false \
           "$_image_id"
         docker exec -it sss bash

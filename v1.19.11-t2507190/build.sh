@@ -13,7 +13,7 @@ __main() {
   _dockerfile=$(
     # 双引号不转义
     cat <<"EOF"
-FROM alpine:latest
+FROM alpine:3.22.1
 RUN set -eux; \
   sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; \
   apk add --no-cache tini bash tzdata tar curl wget jq tmux gzip git; \
@@ -24,7 +24,7 @@ RUN set -eux; \
 RUN set -eux; \
   mkdir -p /apps/bin; \
   cd /apps/bin && \
-  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.10/mihomo-linux-amd64-v1.19.10.gz && \
+  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.11/mihomo-linux-amd64-v1.19.11.gz && \
   gunzip mihomo-linux-amd64-* && \
   mv mihomo-linux-amd64-* /usr/local/bin/mihomo &&  \
   chmod +x /usr/local/bin/mihomo; \
@@ -92,7 +92,7 @@ __help() {
   cat >/dev/null <<"EOF"
 这里可以写一些备注
 
-ghcr.io/lwmacct/250210-cr-mihomo:v1.191.1-amd64-t2502100
+ghcr.io/lwmacct/250210-cr-mihomo:v1.19.11-t2507190
 
 EOF
 }

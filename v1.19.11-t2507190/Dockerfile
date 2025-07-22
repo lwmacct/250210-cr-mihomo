@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.22.1
 RUN set -eux; \
   sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; \
   apk add --no-cache tini bash tzdata tar curl wget jq tmux gzip git; \
@@ -9,7 +9,7 @@ RUN set -eux; \
 RUN set -eux; \
   mkdir -p /apps/bin; \
   cd /apps/bin && \
-  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.3/mihomo-linux-amd64-v1.19.3.gz && \
+  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.11/mihomo-linux-amd64-v1.19.11.gz && \
   gunzip mihomo-linux-amd64-* && \
   mv mihomo-linux-amd64-* /usr/local/bin/mihomo &&  \
   chmod +x /usr/local/bin/mihomo; \

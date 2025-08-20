@@ -92,7 +92,7 @@ __help() {
   cat >/dev/null <<"EOF"
 这里可以写一些备注
 
-ghcr.io/lwmacct/250210-cr-mihomo:v1.19.11-t2507190
+ghcr.io/lwmacct/250210-cr-mihomo:v1.19.12-t2508200
 
 EOF
 }

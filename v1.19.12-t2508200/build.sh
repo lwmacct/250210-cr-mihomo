@@ -24,7 +24,7 @@ RUN set -eux; \
 RUN set -eux; \
   mkdir -p /apps/bin; \
   cd /apps/bin && \
-  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.12/mihomo-linux-amd64-v1.19.12.gz && \
+  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.11/mihomo-linux-amd64-v1.19.11.gz && \
   gunzip mihomo-linux-amd64-* && \
   mv mihomo-linux-amd64-* /usr/local/bin/mihomo &&  \
   chmod +x /usr/local/bin/mihomo; \
@@ -92,7 +92,7 @@ __help() {
   cat >/dev/null <<"EOF"
 这里可以写一些备注
 
-ghcr.io/lwmacct/250210-cr-mihomo:v1.19.12-t2508200
+ghcr.io/lwmacct/250210-cr-mihomo:v1.19.11-t2507190
 
 EOF
 }

@@ -3,7 +3,7 @@
 __main() {
   {
     # 镜像准备
-    _image1="ghcr.io/lwmacct/250210-cr-mihomo:v1.19.14-t2510130"
+    _image1="ghcr.nju.edu.cn/ghcr.io/lwmacct/250210-cr-mihomo:v1.19.14-t2510130"
     _image2="$(docker images -q $_image1)"
     if [[ "$_image2" == "" ]]; then
       docker pull $_image1
@@ -12,7 +12,7 @@ __main() {
   }
 
   _apps_name="250210-mihomo"
-  _apps_data="/data/$_apps_name"
+  _apps_data="/data/project/$_apps_name"
   cat <<EOF | docker compose -p "$_apps_name" -f - up -d --remove-orphans
 services:
   main:

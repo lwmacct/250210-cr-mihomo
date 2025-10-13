@@ -9,7 +9,7 @@ RUN set -eux; \
 RUN set -eux; \
   mkdir -p /apps/bin; \
   cd /apps/bin && \
-  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.11/mihomo-linux-amd64-v1.19.11.gz && \
+  wget https://github.com/MetaCubeX/mihomo/releases/download/v1.19.14/mihomo-linux-amd64-v1.19.14.gz && \
   gunzip mihomo-linux-amd64-* && \
   mv mihomo-linux-amd64-* /usr/local/bin/mihomo &&  \
   chmod +x /usr/local/bin/mihomo; \

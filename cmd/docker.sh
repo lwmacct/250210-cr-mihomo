@@ -3,7 +3,7 @@
 __main() {
   {
     # 镜像准备
-    _image1="ghcr.nju.edu.cn/ghcr.io/lwmacct/250210-cr-mihomo:v1.19.14-t2510130"
+    _image1="1181.s.kuaicdn.cn:11818/ghcr.io/lwmacct/250210-cr-mihomo:v1.19.14-t2510130"
     _image2="$(docker images -q $_image1)"
     if [[ "$_image2" == "" ]]; then
       docker pull $_image1

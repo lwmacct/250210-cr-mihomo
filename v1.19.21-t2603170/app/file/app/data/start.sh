@@ -2,7 +2,7 @@
 
 __main() {
     while true; do
-        mihomo -d /apps/data
+        mihomo -d /app/data
         sleep 10s
     done
 }

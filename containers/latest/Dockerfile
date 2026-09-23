@@ -1,6 +1,8 @@
 FROM alpine:latest
 ARG TARGETARCH
 
+RUN echo "Force refresh 2026-09-23 13:09:18"
+
 RUN set -eux; \
   sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; \
   apk add --no-cache tini bash tzdata tar curl wget jq tmux gzip git; \
